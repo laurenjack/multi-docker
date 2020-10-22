@@ -4,7 +4,34 @@
         {
             "name": "client",
             "image": "jacklaurenson/multi-client",
-            "hostname": "client"
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "jacklaurenson/multi-server",
+            "hostname": "api",
+            "essential": false
+
+        },
+        {
+            "name": "worker",
+            "image": "jacklaurenson/multi-worker",
+            "hostname": "worker",
+            "essential": false
+
+        },
+        {
+            "name": "nginx",
+            "image": "jacklaurenson/multi-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"]
         }
     ]
 }
