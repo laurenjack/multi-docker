@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: client
-      image: jacklaurenson/multi-client
+      image: jacklaurenson/multi-worker
       ports:
         - containerPort: 3000
       
